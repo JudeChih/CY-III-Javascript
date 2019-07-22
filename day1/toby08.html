@@ -29,7 +29,9 @@ function doCal(){
     }else if(tool == '*'){
         r = b1 * b2;    
     }else if(tool == '/'){
-        r = b1 / b2;
+        let t = parseInt(b1 / b2);
+        let y = b1 % b2;
+        r = t+" ...... "+y;
     }
     
     document.getElementById('result').innerHTML = r;
