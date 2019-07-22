@@ -1,0 +1,28 @@
+一行要幾個<input type="text" id="aa">
+要幾個<input type="text" id="bb">
+<input type="button" onclick="call99()" value="請點我">
+<span id="block"></span>
+<script>
+    function call99(){
+        let aa = document.getElementById('aa').value; //一行要幾個
+        let bb = document.getElementById('bb').value; //要幾個
+        document.write("<table border='1' width='100%'>");
+            for(let j=1;j<=bb;j++){
+                if(j % aa == 1){
+                    document.write("<tr>");
+                }
+
+                document.write("<td>");
+                for(let i = 1;i<=9;i++){
+                    document.write((j+1) +' x ' + i + '= ' + (j+1)*i + '<br>');
+                }
+                document.write("</td>");
+
+                if(j % aa == 0){
+                    document.write("</tr>");
+                }
+            }
+        document.write("</table>");
+    }
+    
+</script>
