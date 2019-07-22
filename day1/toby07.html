@@ -6,17 +6,26 @@
         let year = document.getElementById('year').value;
         year = parseInt(year);
         let boolean = true;
-        if(year % 4 != 0){
-            boolean = false;
-        }else if(year % 100 == 0){
-            if(year % 400 == 0){
+        if(year <= 1752){
+            if(year % 4 == 0){
                 boolean = true;
             }else{
                 boolean = false;
             }
         }else{
-            boolean = true;
+            if(year % 4 != 0){
+                boolean = false;
+            }else if(year % 100 == 0){
+                if(year % 400 == 0){
+                    boolean = true;
+                }else{
+                    boolean = false;
+                }
+            }else{
+                boolean = true;
+            }
         }
+        
         document.getElementById('answer').innerHTML = boolean ? '是' : '否';
     }
 </script>
