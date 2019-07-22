@@ -1,0 +1,37 @@
+<!-- JS是弱型別語言 -->
+<script>
+let var1;
+document.write(var1 + "<br>");
+var1 = 123;
+document.write(var1 + ":" + typeof(var1) + "<br>");
+var1 = 12.3;
+document.write(var1 + ":" + typeof(var1) + "<br>");
+var1 = '123';
+document.write(var1 + ":" + typeof(var1) + "<br>");
+var1 = true;
+document.write(var1 + ":" + typeof(var1) + "<br>");
+// typeof 可以用在權等比較的時候
+</script>
+<hr>
+<script>
+//合法的變數名稱 [a-zA-Z$_][a-zA-Z0-9$_]*
+let a123 = 123;
+document.write(a123 + "<br>");
+//let @123 = 123; // 不能這樣命名
+//document.write(@123 + "<br>");
+//let 3abd = 123; // 不能這樣命名
+//document.write(3abd + "<br>");
+let $abd = 123;
+document.write($abd + "<br>");
+</script>
+<hr>
+<script>
+const name = 'Toby'; //常數
+document.write("My name is " + name + "." + "<br>");
+document.write(`My name is ${name} . <br>`); // 倒引號會將變數進行置換
+let a = 10 , b = 3;
+document.write(`${a} + ${b} = ${a+b}`); // 倒引號可以進行運算
+
+
+
+</script>
