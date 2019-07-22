@@ -11,8 +11,12 @@
                 if(j % aa == 1){
                     document.write("<tr>");
                 }
-
-                document.write("<td>");
+                if(j % 2 == 0){
+                    document.write("<td bgcolor='pink'>");
+                }else{
+                    document.write("<td bgcolor='yellow'>");
+                }
+                
                 for(let i = 1;i<=9;i++){
                     document.write((j+1) +' x ' + i + '= ' + (j+1)*i + '<br>');
                 }

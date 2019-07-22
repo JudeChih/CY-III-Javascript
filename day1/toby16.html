@@ -1,0 +1,22 @@
+<script>
+let p1,p2,p3,p4,p5,p6;
+p1 = p2 = p3 = p4 = p5 = p6 = 0;
+
+for(let i = 0; i < 100; i++){
+    let rand = parseInt(Math.random()*6 + 1);
+    switch(rand){
+        case 1: p1++;break;
+        case 2: p2++;break;
+        case 3: p3++;break;
+        case 4: p4++;break;
+        case 5: p5++;break;
+        case 6: p6++;break;
+    }
+}
+document.write(`1點出現${p1}次<br>`);
+document.write(`2點出現${p2}次<br>`);
+document.write(`3點出現${p3}次<br>`);
+document.write(`4點出現${p4}次<br>`);
+document.write(`5點出現${p5}次<br>`);
+document.write(`6點出現${p6}次<br>`);
+</script>
