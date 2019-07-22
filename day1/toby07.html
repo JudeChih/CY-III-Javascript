@@ -1,0 +1,14 @@
+<script>//判斷該年是否為閏年
+    let year = 1900;
+    if(year % 4 != 0){
+        document.write('否');
+    }else if(year % 100 == 0){
+        if(year % 400 == 0){
+            document.write('是');
+        }else{
+            document.write('否');
+        }
+    }else{
+        document.write('否');
+    }
+</script>

@@ -1,0 +1,19 @@
+<script>
+let score = Math.random(); // 0 <= score < 1
+score = parseInt(score * 101);
+document.write(score);
+document.write('<hr>');
+if(score >= 90){
+    document.write('A');
+}else if(score >= 80){
+    document.write('B');
+}else if(score >= 70){
+    document.write('C');
+}else if(score >= 60){
+    document.write('D');
+}else{
+    document.write('E');
+}
+document.write('<hr>');
+
+</script>
