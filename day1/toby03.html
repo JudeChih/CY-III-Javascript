@@ -1,0 +1,23 @@
+<input id="block1" type="text">
+
++
+
+<input id="block2" type="text">
+<input type="button" value="=" onclick="doCal()">
+<span id="result"></span>
+<hr>
+
+
+
+<script>
+function doCal(){
+    let b1 = document.getElementById('block1').value; // 取得<input id="block1" type="text">整個元素
+    let b2 = document.getElementById('block2').value;
+    b1 = parseInt(b1);//轉為數字
+    b2 = parseInt(b2);//轉為數字
+    let r = b1 + b2;
+    document.getElementById('result').innerHTML = r;
+    
+
+}
+</script>
