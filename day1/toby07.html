@@ -5,17 +5,18 @@
     function checkYear(){
         let year = document.getElementById('year').value;
         year = parseInt(year);
+        let boolean = true;
         if(year % 4 != 0){
-            document.getElementById('answer').innerHTML = '否';
+            boolean = false;
         }else if(year % 100 == 0){
             if(year % 400 == 0){
-                document.getElementById('answer').innerHTML = '是';
+                boolean = true;
             }else{
-                document.getElementById('answer').innerHTML = '否';
+                boolean = false;
             }
         }else{
-            document.getElementById('answer').innerHTML = '是';
+            boolean = true;
         }
+        document.getElementById('answer').innerHTML = boolean ? '是' : '否';
     }
-    
 </script>
