@@ -1,14 +1,21 @@
+<input type="text" id="year">
+<input type="button" value="是否為閏年" onclick="checkYear()">
+<span id="answer"></span>
 <script>//判斷該年是否為閏年
-    let year = 1900;
-    if(year % 4 != 0){
-        document.write('否');
-    }else if(year % 100 == 0){
-        if(year % 400 == 0){
-            document.write('是');
+    function checkYear(){
+        let year = document.getElementById('year').value;
+        year = parseInt(year);
+        if(year % 4 != 0){
+            document.getElementById('answer').innerHTML = '否';
+        }else if(year % 100 == 0){
+            if(year % 400 == 0){
+                document.getElementById('answer').innerHTML = '是';
+            }else{
+                document.getElementById('answer').innerHTML = '否';
+            }
         }else{
-            document.write('否');
+            document.getElementById('answer').innerHTML = '是';
         }
-    }else{
-        document.write('否');
     }
+    
 </script>
