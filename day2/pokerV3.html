@@ -1,10 +1,14 @@
 <script>
+
+//洗牌
 let poker = [];
 for(let i = 0 ; i < 52 ; i++) poker[i] = i;
 for(let i = poker.length-1;i>0;i--){
     let rand = parseInt(Math.random()*(i+1));
     [poker[i],poker[rand]] = [poker[rand],poker[i]];//這樣可以將這兩個值對調
 }
+
+//發牌
 let players = [[],[],[],[]];
 for(let i = 0 ; i < poker.length ; i++){
     players[i % players.length].push(poker[i]);
@@ -12,15 +16,41 @@ for(let i = 0 ; i < poker.length ; i++){
 
 </script>
 
+<!-- 攤牌 -->
 <table border="1" width="100%">
     <script>
-        for(let i = 0 ; i < players.length ; i++){
+        for(let player of players){
+            //理牌
+            player.sort(function(a,b){return a-b;}); // 數值的比大小
             document.write('<tr>')
-            document.write('<td>玩家' + (i+1) + '的牌</td>');
-            for(let j of players[i]){
-                document.write('<td>' + j + '</td>');
+            for(let j of player){
+                let a = parseInt(j / 13);
+                let b = (j % 13) + 1;
+                if(b == 1){
+                    b = 'A';
+                }else if(b == 11){
+                    b = 'J';
+                }else if(b == 12){
+                    b = 'Q';
+                }else if(b == 13){
+                    b = 'K';
+                }
+                switch(a){
+                    case 0:
+                        document.write('<td style="color:blake;">&spades;' + b + '</td>');
+                        break;
+                    case 1:
+                        document.write('<td style="color:red;">&hearts;' + b + '</td>');
+                        break;
+                    case 2:
+                        document.write('<td style="color:red;">&diams;' + b + '</td>');
+                        break;
+                    case 3:
+                        document.write('<td style="color:blake;">&clubs;' + b + '</td>');
+                        break;
+                }
             }
-            document.write('</tr>')
+            document.write('</tr>');
         }
     </script>
 </table>

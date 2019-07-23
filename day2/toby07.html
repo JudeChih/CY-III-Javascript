@@ -1,0 +1,13 @@
+1 + 2 + ... +
+<input type="text" id="last">
+<input type="button" value="=" onclick="sum()">
+<span id="answer"></span>
+<script>
+function sum(){
+    let last = document.getElementById('last').value;
+    let first = 1;
+    let sum = 0;
+    while(first <= last) sum += first++;
+    document.getElementById('answer').innerHTML = sum;
+}
+</script>
