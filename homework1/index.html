@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="title">Javascript Homework One</div>
+    <div class="homework_wrap">
+        <div class="topic">Q1：</div><div class="question">找出1~100的質數</div><div class="annotation">只能被1與本身整除的數</div>
+        <div class="answer">
+            <script>
+                for(let i = 1; i <= 100; i++){
+                    var boolean = true;
+                    for(let j = 1; j <= i; j++){
+                        if(i % j == 0 && (j != 1 && i != j )){
+                            boolean = false;
+                        }
+                    }
+                    if(boolean){
+                        document.write('<div class="answer_item">' + i + '</div>');
+                    }
+                }
+            </script>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
