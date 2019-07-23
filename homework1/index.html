@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Homework1</title>
     <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
 </head>
 <body>
     <div class="title">Javascript Homework One</div>
@@ -28,7 +29,30 @@
             </script>
         </div>
     </div>
-    
-    
+    <div class="homework_wrap">
+        <div class="topic">Q2：</div><div class="question">身分證字號產生器</div><div class="annotation">可以指定縣市</div>
+        <div class="answer">
+            <div class="answer1">
+                <p>不給你選</p>
+                <input type="button" value="點擊產生" onclick="createTWID()"><span id="id_wrap1"></span>
+            </div>
+            <div class="answer2">
+                <p>只給你選區域</p>
+                <select name="area" id="area">
+                    <option value="A">台北市</option>
+                    <option value="B">台中市</option>
+                    <option value="C">基隆市</option>
+                    <option value="D">台南市</option>
+                    <option value="E">高雄市</option>
+                    <option value="F">新北市</option>
+                    <option value="G">宜蘭縣</option>
+                    <option value="H">桃園市</option>
+                    <option value="F">新北市</option>
+
+                </select>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
