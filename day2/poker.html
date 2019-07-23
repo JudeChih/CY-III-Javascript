@@ -1,0 +1,27 @@
+<script>
+let poker = [];
+for(let i = 0 ; i < 52 ; i++){
+    let rand = parseInt(Math.random()*52);
+
+    //檢查機制
+    let boolean = false;
+    for(let j = 0 ; j < i ; j++){
+        if(rand == poker[j]){
+            boolean = true;
+            break;
+        }
+    }
+
+    if(!boolean){
+        poker[i] = rand;
+    }else{
+        i--;
+    }
+    
+}
+
+let person = [];
+for(let i = 0 ; i < 52 ; i++){
+    
+}
+</script>

@@ -1,0 +1,27 @@
+<script>
+//跟poker.html比起來，比較沒那麼噁心，但是速度沒比較快
+let poker = [];
+do {
+    let rand = parseInt(Math.random()*52);
+    //檢查機制
+    let boolean = false;
+    for(let j = 0 ; j < poker.length ; j++){
+        if(rand == poker[j]){
+            boolean = true;
+            break;
+        }
+    }
+    if(!boolean){
+        poker.push(rand);
+    }
+} while (poker.length < 52);
+
+for(let i in poker){
+    document.write(poker[i] + "<br>");
+}
+
+let person = [];
+for(let i = 0 ; i < 52 ; i++){
+    
+}
+</script>

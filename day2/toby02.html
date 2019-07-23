@@ -1,3 +1,28 @@
 <script>
+let a = [];
+
+a[0] = [];
+
+document.write(a instanceof Array);
+document.write("<hr>");
+document.write(a[0] instanceof Array);
+document.write("<hr>");
+a[1] = [];
+a[0][0] = 123;
+a[0][1] = 100;
+a[1][0] = 23;
+a[2] = 34;
+
+for(let i in a){
+    if(a[i] instanceof Array){
+        for(let j in a[i]){
+            document.write(a[i][j] + " ");
+        }
+    }else{
+        document.write(a[i]);
+    }
+    document.write("<hr>");
+}
+document.write()
 
 </script>
