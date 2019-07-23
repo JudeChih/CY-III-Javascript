@@ -1,0 +1,60 @@
+<script>
+function sayYa(){
+    document.write("Ya!" + "<br>");
+}
+
+function sayYaV2(name = "Everybody"){ //有設定預設值
+    document.write(`Ya! ${name}.<br>`);
+}
+
+function sayYaV3(name1 = "null",name2 = "null"){
+    document.write(`Ya! ${name1} & ${name2} .<br>`);
+}
+
+function sayYaV4(names){
+    if(names instanceof Array){
+        for(let name of names){
+            document.write(`Ya Hey! ${name} . <br>`);
+        }
+    }else{
+        document.write("I don't like you.");
+    }
+}
+
+function sayYaV5(welcome,...names){
+    for(let name of names){
+        document.write(`${welcome}! ${name} . <br>`);
+    }
+}
+
+
+sayYa();
+sayYaV2('Toby');
+sayYaV2();
+sayYaV3('Jude','Toby');
+sayYaV4(['Jude','Toby']);
+sayYaV4();
+sayYaV5('Hello');
+document.write('<hr>');
+sayYaV5('Hello','Toby');
+document.write('<hr>');
+sayYaV5('Hello','toby','Jude','Mark');
+document.write('<hr>');
+sayYaV5('Hello','toby','Jude','Mark','toby','Jude','Mark');
+document.write('<hr>');
+
+
+let fxy = function (x,y){
+    return 2*x + y;
+}
+document.write(fxy(4,5) + '<br>');
+
+let newfxy = fxy;
+document.write(newfxy(10,2) + '<br>');
+
+
+
+
+
+
+</script>

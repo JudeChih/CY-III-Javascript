@@ -1,0 +1,29 @@
+<script src="toby_tools.js"></script>
+
+<script>
+function checkID(){
+    let id = document.getElementById('twid').value;
+    document.getElementById('idmsg').innerHTML = checkTWID(id)?'OK':'ID error';
+}
+</script>
+
+<form action="">
+    Name:<input type="text" /> <br>
+    ID:<input type="text" id="twid" onblur="checkID()"/> <br>
+    <span id="idmsg"></span><br> 
+    Gender:<input type="radio" name="gender" checked/>Male
+    <input type="radio" name="gender">Female
+</form>
+
+
+
+
+<script>
+let id = "M220500513";
+document.write(checkTWID(id));
+
+document.write("<hr>");
+
+let number = "0922-123456";
+document.write(checkPhoneNumber(number));
+</script>
