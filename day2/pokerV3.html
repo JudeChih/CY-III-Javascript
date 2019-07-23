@@ -1,0 +1,26 @@
+<script>
+let poker = [];
+for(let i = 0 ; i < 52 ; i++) poker[i] = i;
+for(let i = poker.length-1;i>0;i--){
+    let rand = parseInt(Math.random()*(i+1));
+    [poker[i],poker[rand]] = [poker[rand],poker[i]];//這樣可以將這兩個值對調
+}
+let players = [[],[],[],[]];
+for(let i = 0 ; i < poker.length ; i++){
+    players[i % players.length].push(poker[i]);
+}
+
+</script>
+
+<table border="1" width="100%">
+    <script>
+        for(let i = 0 ; i < players.length ; i++){
+            document.write('<tr>')
+            document.write('<td>玩家' + (i+1) + '的牌</td>');
+            for(let j of players[i]){
+                document.write('<td>' + j + '</td>');
+            }
+            document.write('</tr>')
+        }
+    </script>
+</table>
