@@ -33,11 +33,11 @@
         <div class="topic">Q2：</div><div class="question">身分證字號產生器</div><div class="annotation">可以指定縣市</div>
         <div class="answer">
             <div class="answer1">
-                <p>不給你選</p>
+                <span>A1：不給你選</span>
                 <input type="button" value="點擊產生" onclick="createTWID()"><span id="id_wrap1"></span>
             </div>
             <div class="answer2">
-                <p>只給你選區域</p>
+                <span>A2：只給你選區域</span>
                 <select name="area" id="area">
                     <option value="A">台北市</option>
                     <option value="B">台中市</option>
@@ -47,9 +47,70 @@
                     <option value="F">新北市</option>
                     <option value="G">宜蘭縣</option>
                     <option value="H">桃園市</option>
-                    <option value="F">新北市</option>
-
+                    <option value="I">嘉義市</option>
+                    <option value="J">新竹縣</option>
+                    <option value="K">苗栗縣</option>
+                    <option value="M">南投縣</option>
+                    <option value="N">彰化縣</option>
+                    <option value="O">新竹市</option>
+                    <option value="P">雲林縣</option>
+                    <option value="Q">嘉義縣</option>
+                    <option value="T">屏東縣</option>
+                    <option value="U">花蓮縣</option>
+                    <option value="V">台東縣</option>
+                    <option value="W">金門縣</option>
+                    <option value="X">澎湖縣</option>
+                    <option value="Z">連江縣</option>
+                    <option value="L">台中縣</option>
+                    <option value="R">台南縣</option>
+                    <option value="S">高雄縣</option>
+                    <option value="Y">陽明山管理局</option>
                 </select>
+                <input type="button" value="點擊產生" onclick="createTWIDByArea()"><span id="id_wrap2"></span>
+            </div>
+            <div class="answer3">
+                <span>A3：只給你選性別</span>
+                <select name="gender" id="gender">
+                    <option value="1">男</option>
+                    <option value="2">女</option>
+                </select>
+                <input type="button" value="點擊產生" onclick="createTWIDByGender()"><span id="id_wrap3"></span>
+            </div>
+            <div class="answer4">
+                <span>A4：兩個都讓你選</span>
+                <select name="area" id="area">
+                    <option value="A">台北市</option>
+                    <option value="B">台中市</option>
+                    <option value="C">基隆市</option>
+                    <option value="D">台南市</option>
+                    <option value="E">高雄市</option>
+                    <option value="F">新北市</option>
+                    <option value="G">宜蘭縣</option>
+                    <option value="H">桃園市</option>
+                    <option value="I">嘉義市</option>
+                    <option value="J">新竹縣</option>
+                    <option value="K">苗栗縣</option>
+                    <option value="M">南投縣</option>
+                    <option value="N">彰化縣</option>
+                    <option value="O">新竹市</option>
+                    <option value="P">雲林縣</option>
+                    <option value="Q">嘉義縣</option>
+                    <option value="T">屏東縣</option>
+                    <option value="U">花蓮縣</option>
+                    <option value="V">台東縣</option>
+                    <option value="W">金門縣</option>
+                    <option value="X">澎湖縣</option>
+                    <option value="Z">連江縣</option>
+                    <option value="L">台中縣</option>
+                    <option value="R">台南縣</option>
+                    <option value="S">高雄縣</option>
+                    <option value="Y">陽明山管理局</option>
+                </select>
+                <select name="gender" id="gender">
+                    <option value="1">男</option>
+                    <option value="2">女</option>
+                </select>
+                <input type="button" value="點擊產生" onclick="createTWIDByGender()"><span id="id_wrap4"></span>
             </div>
         </div>
     </div>

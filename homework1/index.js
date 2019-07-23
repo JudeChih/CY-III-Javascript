@@ -1,30 +1,70 @@
 function createTWID(){
-    let g_rand = parseInt(Math.random() + 1);
-    let array = 'ABCDEFGHJKLMNPQRTUVXYWZIO';
-    let a_rand = parseInt(Math.random()*26);
-    document.getElementById('id_wrap1').innerHTML = createTWIDByAll(array.substr(a_rand,1),g_rand);
+    //性別亂數
+    let g_rand = getRandomGender();
+    //區域亂數
+    let a_rand = getRandomArea();
+    //回吐身分證字號
+    document.getElementById('id_wrap1').innerHTML = createTWIDByAll(a_rand,g_rand);
 }
 
-function createTWIDByArea(area){
-    let rand = parseInt(Math.random() + 1);
-    return createTWIDByAll(area,rand);
+function createTWIDByArea(){
+    //區域取值
+    let area_v = document.getElementById('area').value;
+    //性別亂數
+    let g_rand = getRandomGender();
+    //回吐身分證字號
+    document.getElementById('id_wrap2').innerHTML = createTWIDByAll(area_v,g_rand);
 }
 
-function createTWIDByGender(gender){
-    let array = 'ABCDEFGHJKLMNPQRTUVXYWZIO';
-    let rand = parseInt(Math.random()*26);
-    return createTWIDByAll(array.substr(rand,1),gender);
+function createTWIDByGender(){
+    //性別取值
+    let gender_v = document.getElementById('gender').value;
+    //區域亂數
+    let a_rand = getRandomArea();
+    //回吐身分證字號
+    document.getElementById('id_wrap3').innerHTML = createTWIDByAll(a_rand,gender_v);
 }
 
+/**
+ * 生產身分證字號
+ * @param  string area   [區域代號]
+ * @param  string gender [性別代號]
+ * @return string        [身分證字號]
+ */
 function createTWIDByAll(area,gender){
     let id = area + gender + parseInt(Math.random()*10) + parseInt(Math.random()*10) + parseInt(Math.random()*10) + parseInt(Math.random()*10) + parseInt(Math.random()*10) + parseInt(Math.random()*10) + parseInt(Math.random()*10);
+    //將身分證加上最後一碼驗證碼並進行判斷真偽
     for(let i = 0 ; i < 10 ; i++){
         if(checkTWID(id + i)){
+            //回傳真值
             return id + i;
         }
     }
 }
 
+/**
+ * 取得亂數區域
+ * @return string [區域代號]
+ */
+function getRandomArea(){
+    let a_array = 'ABCDEFGHJKLMNPQRSTUVXYWZIO';
+    let a_rand = parseInt(Math.random()*26);
+    return a_array.substr(a_rand,1);
+}
+
+/**
+ * 取得亂數性別
+ * @return string [性別代號]
+ */
+function getRandomGender(){
+    return parseInt(Math.random()*2 + 1);
+}
+
+/**
+ * 檢查身分證字號真偽
+ * @param  string  id [身分證字號]
+ * @return boolean    [真偽]
+ */
 function checkTWID(id){
     let ret = false;
     let regex = /^[A-Z][12]\d{8}$/;  //<=這就是正規表示法的預設
