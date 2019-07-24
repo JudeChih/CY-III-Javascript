@@ -25,6 +25,14 @@ html{
     font-size: 14px;
     padding-left: 48px;
     margin-top:20px;
+    width:800px;
+}
+.q1_btn{
+    margin-bottom: 5px;
+}
+.selected{
+    background-color: #113285;
+    color:#fff !important;
 }
 .answer_item{
     display: inline-block;
@@ -36,7 +44,7 @@ html{
     border-radius: 50%;
     border:1px solid #113285;
     color:#096148;
-    margin-right:3px;
+    margin:4px;
 }
 .sub_answer{
     margin: 5px 0;

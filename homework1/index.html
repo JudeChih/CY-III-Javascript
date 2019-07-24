@@ -15,19 +15,12 @@
         <div class="question">找出1~100的質數</div>
         <div class="annotation">只能被1與本身整除的數</div>
         <div class="answer">
+            <div class="q1_btn">
+                <input type="button" value="找出質數" onclick="showPrime()">
+            </div>   
             <script>
                 for(let i = 1; i <= 100; i++){
-                    var boolean = true;
-                    for(let j = 1; j <= i; j++){
-                        if(i % j == 0 && (j != 1 && i != j )){
-                            boolean = false;
-                        }else if(i == 1){
-                            boolean = false;
-                        }
-                    }
-                    if(boolean){
-                        document.write('<div class="answer_item">' + i + '</div>');
-                    }
+                    document.write('<div class="answer_item">' + i + '</div>');
                 }
             </script>
         </div>

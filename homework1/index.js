@@ -1,3 +1,20 @@
+function showPrime(){
+    for(let i = 1; i <= 100; i++){
+        var boolean = true;
+        for(let j = 1; j <= i; j++){
+            if(i % j == 0 && (j != 1 && i != j )){
+                boolean = false;
+            }else if(i == 1){
+                boolean = false;
+            }
+        }
+        if(boolean){
+            let item = document.getElementsByClassName('answer_item')[i-1];
+            item.classList.add('selected');
+        }
+    }
+}
+
 function getTWID(){
     //性別亂數
     let g_rand = getRandomGender();
