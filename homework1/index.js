@@ -1,28 +1,37 @@
-function createTWID(){
+function getTWID(){
     //性別亂數
     let g_rand = getRandomGender();
     //區域亂數
     let a_rand = getRandomArea();
     //回吐身分證字號
-    document.getElementById('id_wrap1').innerHTML = createTWIDByAll(a_rand,g_rand);
+    document.getElementById('id_wrap1').innerHTML = createTWID(a_rand,g_rand);
 }
 
-function createTWIDByArea(){
+function getTWIDByArea(){
     //區域取值
-    let area_v = document.getElementById('area').value;
+    let area_v = document.getElementById('a2_area').value;
     //性別亂數
     let g_rand = getRandomGender();
     //回吐身分證字號
-    document.getElementById('id_wrap2').innerHTML = createTWIDByAll(area_v,g_rand);
+    document.getElementById('id_wrap2').innerHTML = createTWID(area_v,g_rand);
 }
 
-function createTWIDByGender(){
+function getTWIDByGender(){
     //性別取值
-    let gender_v = document.getElementById('gender').value;
+    let gender_v = document.getElementById('a3_gender').value;
     //區域亂數
     let a_rand = getRandomArea();
     //回吐身分證字號
-    document.getElementById('id_wrap3').innerHTML = createTWIDByAll(a_rand,gender_v);
+    document.getElementById('id_wrap3').innerHTML = createTWID(a_rand,gender_v);
+}
+
+function getTWIDByAll(){
+    //區域取值
+    let area_v = document.getElementById('a4_area').value;
+    //性別取值
+    let gender_v = document.getElementById('a4_gender').value;
+    document.getElementById('id_wrap4').innerHTML = createTWID(area_v,gender_v);
+
 }
 
 /**
@@ -31,7 +40,7 @@ function createTWIDByGender(){
  * @param  string gender [性別代號]
  * @return string        [身分證字號]
  */
-function createTWIDByAll(area,gender){
+function createTWID(area,gender){
     let id = area + gender + parseInt(Math.random()*10) + parseInt(Math.random()*10) + parseInt(Math.random()*10) + parseInt(Math.random()*10) + parseInt(Math.random()*10) + parseInt(Math.random()*10) + parseInt(Math.random()*10);
     //將身分證加上最後一碼驗證碼並進行判斷真偽
     for(let i = 0 ; i < 10 ; i++){

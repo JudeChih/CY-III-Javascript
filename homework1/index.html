@@ -12,13 +12,17 @@
 <body>
     <div class="title">Javascript Homework One</div>
     <div class="homework_wrap">
-        <div class="topic">Q1：</div><div class="question">找出1~100的質數</div><div class="annotation">只能被1與本身整除的數</div>
+        <div class="topic">Q1：</div>
+        <div class="question">找出1~100的質數</div>
+        <div class="annotation">只能被1與本身整除的數</div>
         <div class="answer">
             <script>
                 for(let i = 1; i <= 100; i++){
                     var boolean = true;
                     for(let j = 1; j <= i; j++){
                         if(i % j == 0 && (j != 1 && i != j )){
+                            boolean = false;
+                        }else if(i == 1){
                             boolean = false;
                         }
                     }
@@ -30,15 +34,17 @@
         </div>
     </div>
     <div class="homework_wrap">
-        <div class="topic">Q2：</div><div class="question">身分證字號產生器</div><div class="annotation">可以指定縣市</div>
+        <div class="topic">Q2：</div>
+        <div class="question">身分證字號產生器</div>
+        <div class="annotation">可選縣市、性別</div>
         <div class="answer">
             <div class="answer1">
                 <span>A1：不給你選</span>
-                <input type="button" value="點擊產生" onclick="createTWID()"><span id="id_wrap1"></span>
+                <input type="button" value="點擊產生" onclick="getTWID()"><span id="id_wrap1"></span>
             </div>
             <div class="answer2">
                 <span>A2：只給你選區域</span>
-                <select name="area" id="area">
+                <select name="a2_area" id="a2_area">
                     <option value="A">台北市</option>
                     <option value="B">台中市</option>
                     <option value="C">基隆市</option>
@@ -66,19 +72,19 @@
                     <option value="S">高雄縣</option>
                     <option value="Y">陽明山管理局</option>
                 </select>
-                <input type="button" value="點擊產生" onclick="createTWIDByArea()"><span id="id_wrap2"></span>
+                <input type="button" value="點擊產生" onclick="getTWIDByArea()"><span id="id_wrap2"></span>
             </div>
             <div class="answer3">
                 <span>A3：只給你選性別</span>
-                <select name="gender" id="gender">
+                <select name="a3_gender" id="a3_gender">
                     <option value="1">男</option>
                     <option value="2">女</option>
                 </select>
-                <input type="button" value="點擊產生" onclick="createTWIDByGender()"><span id="id_wrap3"></span>
+                <input type="button" value="點擊產生" onclick="getTWIDByGender()"><span id="id_wrap3"></span>
             </div>
             <div class="answer4">
                 <span>A4：兩個都讓你選</span>
-                <select name="area" id="area">
+                <select name="a4_area" id="a4_area">
                     <option value="A">台北市</option>
                     <option value="B">台中市</option>
                     <option value="C">基隆市</option>
@@ -106,11 +112,11 @@
                     <option value="S">高雄縣</option>
                     <option value="Y">陽明山管理局</option>
                 </select>
-                <select name="gender" id="gender">
+                <select name="a4_gender" id="a4_gender">
                     <option value="1">男</option>
                     <option value="2">女</option>
                 </select>
-                <input type="button" value="點擊產生" onclick="createTWIDByGender()"><span id="id_wrap4"></span>
+                <input type="button" value="點擊產生" onclick="getTWIDByAll()"><span id="id_wrap4"></span>
             </div>
         </div>
     </div>
