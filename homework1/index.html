@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,88 +37,129 @@
         <div class="question">身分證字號產生器</div>
         <div class="annotation">可選縣市、性別</div>
         <div class="answer">
-            <div class="answer1">
-                <span>A1：不給你選</span>
-                <input type="button" value="點擊產生" onclick="getTWID()"><span id="id_wrap1"></span>
+            <div class="sub_answer">
+                <span>A1：隨機幫你產生</span>
+                <div class="area_wrap">
+                    <select name="a1_area" id="a1_area" disabled>
+                        <option value="null">想選嗎??</option>
+                        <option value="null">絕對不讓你選</option>
+                    </select>
+                </div>
+                <div class="gender_wrap">
+                    <select name="a1_gender" id="a1_gender" disabled>
+                        <option value="null">人</option>
+                    </select>
+                </div>
+                <div class="btn_wrap">
+                    <input type="button" value="點擊產生" onclick="getTWID()">
+                </div>
+                <span id="id_wrap1"></span>
             </div>
-            <div class="answer2">
+            <div class="sub_answer">
                 <span>A2：只給你選區域</span>
-                <select name="a2_area" id="a2_area">
-                    <option value="A">台北市</option>
-                    <option value="B">台中市</option>
-                    <option value="C">基隆市</option>
-                    <option value="D">台南市</option>
-                    <option value="E">高雄市</option>
-                    <option value="F">新北市</option>
-                    <option value="G">宜蘭縣</option>
-                    <option value="H">桃園市</option>
-                    <option value="I">嘉義市</option>
-                    <option value="J">新竹縣</option>
-                    <option value="K">苗栗縣</option>
-                    <option value="M">南投縣</option>
-                    <option value="N">彰化縣</option>
-                    <option value="O">新竹市</option>
-                    <option value="P">雲林縣</option>
-                    <option value="Q">嘉義縣</option>
-                    <option value="T">屏東縣</option>
-                    <option value="U">花蓮縣</option>
-                    <option value="V">台東縣</option>
-                    <option value="W">金門縣</option>
-                    <option value="X">澎湖縣</option>
-                    <option value="Z">連江縣</option>
-                    <option value="L">台中縣</option>
-                    <option value="R">台南縣</option>
-                    <option value="S">高雄縣</option>
-                    <option value="Y">陽明山管理局</option>
-                </select>
-                <input type="button" value="點擊產生" onclick="getTWIDByArea()"><span id="id_wrap2"></span>
+                <div class="area_wrap">
+                    <select name="a2_area" id="a2_area">
+                        <option value="A">台北市</option>
+                        <option value="B">台中市</option>
+                        <option value="C">基隆市</option>
+                        <option value="D">台南市</option>
+                        <option value="E">高雄市</option>
+                        <option value="F">新北市</option>
+                        <option value="G">宜蘭縣</option>
+                        <option value="H">桃園市</option>
+                        <option value="I">嘉義市</option>
+                        <option value="J">新竹縣</option>
+                        <option value="K">苗栗縣</option>
+                        <option value="M">南投縣</option>
+                        <option value="N">彰化縣</option>
+                        <option value="O">新竹市</option>
+                        <option value="P">雲林縣</option>
+                        <option value="Q">嘉義縣</option>
+                        <option value="T">屏東縣</option>
+                        <option value="U">花蓮縣</option>
+                        <option value="V">台東縣</option>
+                        <option value="W">金門縣</option>
+                        <option value="X">澎湖縣</option>
+                        <option value="Z">連江縣</option>
+                        <option value="L">台中縣</option>
+                        <option value="R">台南縣</option>
+                        <option value="S">高雄縣</option>
+                        <option value="Y">陽明山管理局</option>
+                    </select>
+                </div>
+                <div class="gender_wrap">
+                    <select name="a2_gender" id="a2_gender" disabled>
+                        <option value="null">人</option>
+                    </select>
+                </div>
+                <div class="btn_wrap">
+                    <input type="button" value="點擊產生" onclick="getTWIDByArea()">
+                </div>     
+                <span id="id_wrap2"></span>
             </div>
-            <div class="answer3">
+            <div class="sub_answer">
                 <span>A3：只給你選性別</span>
-                <select name="a3_gender" id="a3_gender">
-                    <option value="1">男</option>
-                    <option value="2">女</option>
-                </select>
-                <input type="button" value="點擊產生" onclick="getTWIDByGender()"><span id="id_wrap3"></span>
+                <div class="area_wrap">
+                    <select name="a3_area" id="a3_area" disabled>
+                        <option value="null">想選嗎??</option>
+                        <option value="null">絕對不讓你選</option>
+                    </select>
+                </div>
+                <div class="gender_wrap">
+                    <select name="a3_gender" id="a3_gender">
+                        <option value="1">男</option>
+                        <option value="2">女</option>
+                    </select>
+                </div>
+                <div class="btn_wrap">
+                    <input type="button" value="點擊產生" onclick="getTWIDByGender()">
+                </div>
+                <span id="id_wrap3"></span>
             </div>
-            <div class="answer4">
+            <div class="sub_answer">
                 <span>A4：兩個都讓你選</span>
-                <select name="a4_area" id="a4_area">
-                    <option value="A">台北市</option>
-                    <option value="B">台中市</option>
-                    <option value="C">基隆市</option>
-                    <option value="D">台南市</option>
-                    <option value="E">高雄市</option>
-                    <option value="F">新北市</option>
-                    <option value="G">宜蘭縣</option>
-                    <option value="H">桃園市</option>
-                    <option value="I">嘉義市</option>
-                    <option value="J">新竹縣</option>
-                    <option value="K">苗栗縣</option>
-                    <option value="M">南投縣</option>
-                    <option value="N">彰化縣</option>
-                    <option value="O">新竹市</option>
-                    <option value="P">雲林縣</option>
-                    <option value="Q">嘉義縣</option>
-                    <option value="T">屏東縣</option>
-                    <option value="U">花蓮縣</option>
-                    <option value="V">台東縣</option>
-                    <option value="W">金門縣</option>
-                    <option value="X">澎湖縣</option>
-                    <option value="Z">連江縣</option>
-                    <option value="L">台中縣</option>
-                    <option value="R">台南縣</option>
-                    <option value="S">高雄縣</option>
-                    <option value="Y">陽明山管理局</option>
-                </select>
-                <select name="a4_gender" id="a4_gender">
-                    <option value="1">男</option>
-                    <option value="2">女</option>
-                </select>
-                <input type="button" value="點擊產生" onclick="getTWIDByAll()"><span id="id_wrap4"></span>
+                <div class="area_wrap">
+                    <select name="a4_area" id="a4_area">
+                        <option value="A">台北市</option>
+                        <option value="B">台中市</option>
+                        <option value="C">基隆市</option>
+                        <option value="D">台南市</option>
+                        <option value="E">高雄市</option>
+                        <option value="F">新北市</option>
+                        <option value="G">宜蘭縣</option>
+                        <option value="H">桃園市</option>
+                        <option value="I">嘉義市</option>
+                        <option value="J">新竹縣</option>
+                        <option value="K">苗栗縣</option>
+                        <option value="M">南投縣</option>
+                        <option value="N">彰化縣</option>
+                        <option value="O">新竹市</option>
+                        <option value="P">雲林縣</option>
+                        <option value="Q">嘉義縣</option>
+                        <option value="T">屏東縣</option>
+                        <option value="U">花蓮縣</option>
+                        <option value="V">台東縣</option>
+                        <option value="W">金門縣</option>
+                        <option value="X">澎湖縣</option>
+                        <option value="Z">連江縣</option>
+                        <option value="L">台中縣</option>
+                        <option value="R">台南縣</option>
+                        <option value="S">高雄縣</option>
+                        <option value="Y">陽明山管理局</option>
+                    </select>
+                </div>
+                <div class="gender_wrap">
+                    <select name="a4_gender" id="a4_gender">
+                        <option value="1">男</option>
+                        <option value="2">女</option>
+                    </select>
+                </div>    
+                <div class="btn_wrap">
+                    <input type="button" value="點擊產生" onclick="getTWIDByAll()">
+                </div>
+                <span id="id_wrap4"></span>
             </div>
         </div>
     </div>
-
 </body>
 </html>

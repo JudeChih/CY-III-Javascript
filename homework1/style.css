@@ -38,3 +38,23 @@ html{
     color:#096148;
     margin-right:3px;
 }
+.sub_answer{
+    margin: 5px 0;
+    font-size: 0;
+}
+.area_wrap , .gender_wrap , .btn_wrap{
+    display: inline-block;
+}
+.area_wrap{
+    width:115px;
+    margin-left:10px;
+}
+.gender_wrap{
+    width:50px;
+}
+.btn_wrap{
+    width:80px;
+}
+span{
+    font-size: 14px;
+}
