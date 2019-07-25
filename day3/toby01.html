@@ -1,0 +1,18 @@
+<script src="toby_tools.js"></script>
+<script>
+    let answer = createAnswer();
+    function doGuess(){
+        let guess = document.getElementById('input').value;
+        checkAB(answer,guess);
+    }
+</script>
+<h1>Guess Number Game</h1>
+<hr>
+<input type="number" id="input">
+<input type="button" value="Guess" onclick="doGuess()">
+<hr>
+<div id="log">
+
+</div>
+
+
