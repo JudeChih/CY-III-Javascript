@@ -1,0 +1,30 @@
+<script>
+let body = document.createElement('body');
+document.body = body;
+
+let header = document.createElement('h1');
+header.innerHTML = "bbbbbbb";
+body.appendChild(header);
+
+let hr = document.createElement('hr');
+body.appendChild(hr);
+
+let table = document.createElement('table');
+body.appendChild(table)
+table.setAttribute('border','1');
+table.setAttribute('width','100%');
+
+for(let i = 0 ; i < 2 ; i++){
+    let tr = document.createElement('tr');
+    table.appendChild(tr);
+    for(let j = 2 ; j <= 5 ; j++){
+        let td = document.createElement('td');
+        tr.appendChild(td);
+        let newi = j + i * 4;
+        for(let k = 1 ; k <= 9 ; k++){
+            td.innerHTML +=  `${newi} x ${k} = ${newi*k}<br>`;
+        }
+    }
+}
+
+</script>

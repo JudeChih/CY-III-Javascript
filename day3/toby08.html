@@ -1,0 +1,41 @@
+<script>
+let body = document.createElement('body');
+document.body = body;
+
+let header = document.createElement('h1');
+let h1text = document.createTextNode("CY super")
+header.appendChild(h1text);
+document.body.appendChild(header);
+let hr = document.createElement('hr');
+document.body.appendChild(hr);
+
+let ul = document.createElement('ul');
+
+let rr;
+for(let i = 0 ; i < 38 ; i++){
+    let li = document.createElement('li');
+    li.innerHTML = '隨便寫個東西' + i;
+    ul.appendChild(li);
+    if(i == 2){
+        rr = li;
+    }
+}
+ul.removeChild(rr)
+document.body.appendChild(ul);
+
+let hr2 = hr.cloneNode(); //複製
+document.body.appendChild(hr2);
+
+let ul2 = ul.cloneNode();
+document.body.appendChild(ul2);
+for(let i = 0 ; i < 38 ; i++){
+    let li = document.createElement('li');
+    li.innerHTML = '隨便寫個東西' + i;
+    ul2.appendChild(li);
+    if(i == 2){
+        rr = li;
+    }
+}
+
+</script>
+<h1>Toby GO GO</h1>
