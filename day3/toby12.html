@@ -1,0 +1,79 @@
+<h1 id="head"></h1>
+<hr>
+<input type="button" value="Clear" onclick="clearPPP()">
+<input type="button" value="left" onclick="moveLeft()">
+<input type="button" value="right" onclick="moveRight()">
+<input type="button" value="top" onclick="moveTop()">
+<input type="button" value="bottom" onclick="moveBottom()">
+<hr>
+<canvas id="canvas" width="600" height="600" style="border:1px solid #000;"></canvas>
+
+
+
+
+<script>
+head.innerHTML = '中佑大公司';
+let ctx = canvas.getContext('2d');
+let isDrag = false;  
+ctx.strockeStyle = 'rgb(0,0,255)';
+ctx.beginPath();
+//畫線的過程
+// ctx.moveTo(10,10);
+// ctx.lineTo(100,100);
+// ctx.stroke();
+
+
+canvas.onmousedown = function(e){
+    ctx.beginPath();
+    ctx.moveTo(e.offsetX,e.offsetY);
+    isDrag = true;
+}
+
+canvas.onmouseup = function(e){
+    isDrag = false;
+}
+
+canvas.onmousemove = function(e){
+    if(isDrag){
+        ctx.lineTo(e.offsetX,e.offsetY);
+        ctx.stroke();
+    }
+    
+}
+
+let ball = new Image();
+let ballX = 200;
+let ballY = 200;
+ball.src = 'ball.png';
+ball.onload = function(){
+    ctx.drawImage(ball,ballX,ballY);
+}
+
+function moveLeft(){
+    clearPPP()
+    ballX -= 8;
+    ctx.drawImage(ball,ballX,ballY);
+}
+
+function moveRight(){
+    clearPPP()
+    ballX += 8;
+    ctx.drawImage(ball,ballX,ballY);
+}
+
+function moveTop(){
+    clearPPP()
+    ballY -= 8;
+    ctx.drawImage(ball,ballX,ballY);
+}
+
+function moveBottom(){
+    clearPPP()
+    ballY += 8;
+    ctx.drawImage(ball,ballX,ballY);
+}
+
+function clearPPP(){
+    ctx.clearRect(0,0,600,600);
+}
+</script>
