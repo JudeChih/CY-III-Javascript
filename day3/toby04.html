@@ -1,5 +1,47 @@
 <script>
+//物件最重要的是屬性
 let bike = new Object();
+document.write(typeof bike + "<br>");
+bike.speed = 0;//腳踏車速度
+bike.gear = 1;//腳踏車檔位
+bike.upSpeed = function(){//腳踏車加速度的功能
+    this.speed = this.speed < 1 ? 1 : this.speed * 1.2*this.gear;
+}
+bike.downSpeed = function(){//腳踏車減速度的功能
+    this.speed = this.speed < 1 ? 0 : this.speed * 0.7;
+}
 
-document.write(typeof bike);
+//騎腳踏車的動作
+bike.upSpeed();
+bike.upSpeed();
+bike.upSpeed();
+bike.upSpeed();
+bike.downSpeed();
+
+document.write(bike.speed + "<hr>");
+
+let bike2 = {
+    speed : 0,
+    gear : 1,
+    upSpeed : function(){
+        this.speed = this.speed < 1 ? 1 : this.speed*1.2*this.gear;
+    },
+    downSpeed : function(){
+        this.speed = this.speed < 1 ? 0 : this.speed * 0.7;
+    }
+};
+
+document.write(bike2.speed + "<br>");
+bike2.upSpeed();bike2.upSpeed();
+document.write(bike2.speed + "<br>");
+
+bike2['upSpeed']();
+document.write(bike2.speed + "<br>");
+
+let method = 'upSpeed';
+bike2[method]();
+document.write(bike2.speed + "<br>");
+
+
+
 </script>
