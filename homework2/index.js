@@ -82,10 +82,10 @@ function checkAB(ans,gus){
 
 //檢查傳入值是否符合規格
 function checkNumber(num){
-    // 檢查是否重複
-
     // 檢查是否都是數字
 
+    // 檢查是否重複
+    
     // 檢查字數
 
     //可以用正規表示法判斷
