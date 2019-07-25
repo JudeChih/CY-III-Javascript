@@ -42,6 +42,19 @@ let method = 'upSpeed';
 bike2[method]();
 document.write(bike2.speed + "<br>");
 
+document.write("<hr>");
+for (let i in bike2){
+    document.write(i + " => " + bike2[i] + "<br>");
+}
+document.write("<hr>");
 
+for ( let i in document){
+    document.write(i + " => " + document[i] + "<br>");
+}
 
+document.write("<hr>");
+
+for ( let i in navigator){
+    document.write(i + " => " + navigator[i] + "<br>");
+}
 </script>

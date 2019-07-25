@@ -1,0 +1,16 @@
+<div id="mytext">Hello,World</div>
+<hr>
+<select id="text" onchange="changeAlign()">
+    <option value="left">left</option>
+    <option value="center">center</option>
+    <option value="right">right</option>
+</select>
+
+
+<script>
+    function changeAlign(){
+        let style = document.getElementById('text').value;
+        let mytext = document.getElementById('mytext');
+        mytext.style.textAlign = style;
+    }
+</script>

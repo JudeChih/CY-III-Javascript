@@ -88,4 +88,5 @@ function checkNumber(num){
 
     // 檢查字數
 
+    //可以用正規表示法判斷
 }
