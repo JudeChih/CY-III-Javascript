@@ -35,5 +35,5 @@ function checkAB(ans,gus){
             }
         }
     }
-    document.getElementById('log').innerHTML = "A:" + A + "..B:" + B;
+    return A + "A" + B + "B";
 }

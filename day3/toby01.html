@@ -1,15 +1,43 @@
 <script src="toby_tools.js"></script>
 <script>
-    let answer = createAnswer();
+    let dd = 3;
+    let answer = createAnswer(dd);
+    let logtext = '';
+    let count = 0;
     function doGuess(){
+        count++;
         let guess = document.getElementById('input').value;
-        checkAB(answer,guess);
+        let result = checkAB(answer,guess);
+        document.getElementById('input').value = '';
+        logtext += `第${count}次：${guess} => ${result} <br>`;
+        if(result == `${dd}A0B`){
+            logtext += '恭喜你猜對了<br>';
+        }else if(count == 5){
+            logtext += '你再不猜出來你要被罵了<br>';
+        }else if(count == 10){
+            logtext += '這樣不行你已經沒有機會了<br>';
+            logtext += '答案是'+answer+'<br>';
+            resetGame();
+        }
+
+        document.getElementById('log').innerHTML = logtext;
+        document.getElementById('input').focus();
+    }
+
+    function resetGame(){
+        answer = createAnswer(dd);
+        logtext = ''
+        document.getElementById('log').innerHTML = '';
+        count = 0;
+        document.getElementById('input').value = '';
+        document.getElementById('input').focus();
     }
 </script>
 <h1>Guess Number Game</h1>
 <hr>
 <input type="number" id="input">
 <input type="button" value="Guess" onclick="doGuess()">
+<input type="button" value="replay" onclick="resetGame()">
 <hr>
 <div id="log">
 
