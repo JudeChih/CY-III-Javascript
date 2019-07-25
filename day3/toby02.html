@@ -1,0 +1,22 @@
+<script>
+let timeout = null;
+function test1(){
+    timeout = setTimeout(test2,3000);
+}
+
+function test2(){
+    document.getElementById('here').innerHTML = parseInt(Math.random()*49 +1);
+}
+
+function test3(){
+    if(timeout != null){
+        clearTimeout(timeout);
+        document.getElementById('here').innerHTML = 'not mach';
+    }
+}
+</script>
+
+<input type="button" value="Click" onclick="test1()">
+<input type="button" value="click2" onclick="test3()">
+<hr>
+<div id="here"></div>

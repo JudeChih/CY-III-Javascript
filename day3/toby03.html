@@ -1,0 +1,35 @@
+<script>
+let counter = 0;
+let timer = null;
+let boolean = true;
+function start(){
+    if(boolean){
+        timer = setInterval(doThing,1000);
+    }
+    boolean = false;
+}
+
+function doThing(){
+    document.getElementById('counter').innerHTML = ++counter;
+}
+
+function pause(){
+    if(timer != null){
+        clearInterval(timer);
+        boolean = true;
+    }
+}
+
+function zero(){
+    clearInterval(timer);
+    counter = 0;
+    document.getElementById('counter').innerHTML = counter;
+    boolean = true;
+}
+</script>
+
+Timer: <span id="counter">0</span>
+<hr>
+<input type="button" value="Start" onclick="start()">
+<input type="button" value="Pause" onclick="pause()">
+<input type="button" value="Zero" onclick="zero()">
