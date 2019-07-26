@@ -1,5 +1,14 @@
 <script>
 let xhttp = new XMLHttpRequest();
+function test1(){
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            
+        }
+    };
+    xhttp.open("GET","toby01.php",true);
+    xhttp.send();
+}
 
 
 
@@ -7,3 +16,13 @@ let xhttp = new XMLHttpRequest();
 
 
 </script>
+
+<!-- <form action="toby01.php" method="POST">。 -->
+    <!-- <input type="file" name="upload" id=""> -->
+    <input type="submit" value="Upload" onclick="test1()">
+<!-- </form> -->
+
+<div id="stat1"></div>
+<div id="stat2"></div>
+<div id="stat3"></div>
+<div id="stat4"></div>
