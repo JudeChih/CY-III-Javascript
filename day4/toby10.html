@@ -1,0 +1,49 @@
+<script>
+class Bike{
+    constructor(speed){
+        document.write(speed+"Bike()<br>");
+        this.speed = speed;
+        this.name = '';
+    }
+    upSpeed(){
+        document.write("Bike:upSpeed()<br>");
+    }
+}
+
+class Scooter extends Bike{
+    constructor(speed,gear){ //自己的建構式  不是父層的
+        document.write("Scooter()<br>");
+        super(speed);
+        this.speed = speed;
+        this.gear = gear;
+    }
+    chGear(gear){
+        document.write("Scooter:chGear()<br>");
+    }
+    upSpeed(){
+        super.upSpeed(); //super可以代表父類別
+        document.write("Scooter:upSpeed()<br>");
+    }
+}
+
+let b1 = new Bike(123);
+b1.upSpeed();
+
+document.write(b1.speed + "<hr>");
+
+let s1 = new Scooter(234);
+s1.upSpeed();
+s1.chGear(4);
+document.write(s1.speed + "<hr>");
+
+document.write(b1 instanceof Bike);
+document.write("<hr>");
+document.write(s1 instanceof Bike);
+document.write("<hr>");
+document.write(s1 instanceof Scooter);
+document.write("<hr>");
+document.write(b1 instanceof Scooter);
+document.write("<hr>");
+
+
+</script>

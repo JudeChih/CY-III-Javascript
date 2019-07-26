@@ -1,0 +1,71 @@
+<script src="toby_tools.js"></script>
+<script>
+let bike = {
+    a:11,
+    b:22,
+    m1:function(){
+        document.write("bike:m1():" + this.a + "<br>");
+    }
+}
+
+let person = {
+    name:'nobody',
+    mybike:Object.create(bike)
+}
+
+let b1 = Object.create(bike);
+for(let key in b1){
+    document.write(key + ":" + b1[key] + "<br>");
+}
+document.write("<hr>");
+
+let b2 = bike.constructor();
+document.write(typeof b2 + "<br>");
+for(let key in b2){
+    document.write(key + ":" + b2[key] + "<br>");
+}
+document.write("<hr>");
+
+let b3 = clone(bike);
+for(let key in b3){
+    document.write(key + ":" + b3[key] + "<br>");
+}
+document.write("<hr>");
+
+let p1 = Object.create(person);
+p1.name = 'Toby';
+p1.mybike.a = 33;
+document.write(p1.name + " : " + p1.mybike.a + "<br>");
+p1.mybike.m1();
+document.write("<hr>");
+
+let p2 = clone(person);
+p2.name = 'Jude';
+p2.mybike.a = 44;
+document.write(p2.name + " : " + p2.mybike.a + "<br>");
+p2.mybike.m1();
+document.write("<hr>");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

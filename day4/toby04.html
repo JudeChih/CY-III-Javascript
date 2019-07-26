@@ -1,0 +1,22 @@
+<script>
+let bike = function(){
+    console.log("eeee");
+    this.a = 12;
+    this.b = 24;
+}
+
+let b1 = new bike();
+
+bike.prototype.x = 111;
+console.log(b1.x);
+
+bike.prototype.b = 222;
+console.log(b1.b);
+
+let b2 = new bike();
+b2.a = 56;
+b2.c = 99;
+console.log(b2)
+
+
+</script>

@@ -1,0 +1,84 @@
+<script src="toby_tools.js"></script>
+<h1 id="head"></h1>
+<hr>
+<canvas id="canvas" width="711" height="425" style="border:1px solid #4F726C;"></canvas>
+
+<script>
+head.innerHTML = '神奇寶貝';
+let isFirst = true;
+let ctx = canvas.getContext('2d');
+let bg = new Image();
+bg.src = 'bg.png';
+let ball1 = new Image();
+let ball2 = new Image();
+let ball3 = new Image();
+let ball4 = new Image();
+let ball5 = new Image();
+let ball6 = new Image();
+ball1.src ='ball1.png';
+ball2.src ='ball2.png';
+ball3.src ='ball3.png';
+ball4.src ='ball4.png';
+ball5.src ='ball5.png';
+ball6.src ='ball6.png';
+let ballImg = [ball1,ball2,ball3,ball4,ball5,ball6];
+let balls = [];
+let ballobj = {
+    x : 0,
+    y : 0,
+    dx : 8,
+    dy : 8,
+    img : 0,
+}
+
+bg.onload = function(){
+    ctx.drawImage(bg,0,0);
+}
+
+canvas.onmousedown = function(e){
+    let ball = clone(ballobj);
+    ball.x = event.offsetX - 24;
+    ball.y = event.offsetY - 24;
+    ball.img = parseInt(Math.random()*ballImg.length);
+    ball.dx = parseInt(Math.random()*17 - 8);
+    ball.dy = parseInt(Math.random()*17 - 8);
+    balls.push(ball);
+}
+
+canvas.onmouseup = function(e){
+
+}
+
+canvas.onmousemove = function(e){
+    
+}
+
+function refreshView (){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.drawImage(bg,0,0);
+    
+    for(let ball of balls){
+        ctx.drawImage(ballImg[ball.img],ball.x,ball.y);
+    }
+}
+setInterval(refreshView,17);
+
+function moveBall(obj){
+    if(obj.x < 0 || obj.x + 48 > canvas.width){
+        obj.dx *= -1;
+    }
+    if(obj.y < 0 || obj.y + 48 > canvas.height){
+        obj.dy *= -1;
+    }
+    obj.x += obj.dx;
+    obj.y += obj.dy;
+}
+
+function go(){
+    for(let ball of balls){
+        moveBall(ball);
+    }
+}
+setInterval(go,30);
+
+</script>

@@ -1,0 +1,37 @@
+<script>
+let bike = function(name,speed){
+    this.name = name;
+    this.speed = speed;
+}
+
+bike.chSpeed = function(speed){
+    document.write("eeeeee");
+    this.speed = speed;
+}
+
+bike.prototype.chSpeed = function(speed){
+    document.write("dedede");
+}
+
+let b1 = new bike('U-bike',12);
+b1.chSpeed = function(speed){
+    document.write("dddddd");
+}
+for(let key in b1){
+    document.write(key + " : " + b1[key] + "<br>");
+}
+
+document.write("<hr>");
+b1.chSpeed(23);
+for(let key in b1){
+    document.write(key + " : " + b1[key] + "<br>");
+}
+document.write("<hr>");
+
+let b2 = new bike('O-bike',34);
+for(let key in b2){
+    document.write(key + " : " + b2[key] + "<br>");
+}
+
+
+</script>

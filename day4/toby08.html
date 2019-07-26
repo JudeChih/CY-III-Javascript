@@ -1,0 +1,40 @@
+<script src="toby_tools.js"></script>
+<script>
+let person = {
+    name : 'Toby',
+    age : 32,
+    weight : 76,
+    bike:[{
+        brand: 'Giant',
+        speed: 10,
+    },{
+        brand: 'Merida',
+        speed: 20,
+    }],
+    eat:function(){
+        document.write(this.name + "偷吃");
+    }
+}
+
+let strJSON = JSON.stringify(person);//不包含函式只會有改物件的屬性
+document.write(strJSON);
+
+document.write("<hr>");
+let person2 = JSON.parse(strJSON);
+for(let key in person2){
+    document.write(key + " : " + person2[key] + "<br>");
+}
+
+document.write("<hr>");
+
+person.eat.call(person2)
+document.write("<hr>");
+let person3 = clone(person);
+person3.eat();
+
+
+
+
+
+
+</script>
