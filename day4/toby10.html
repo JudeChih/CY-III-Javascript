@@ -8,6 +8,9 @@ class Bike{
     upSpeed(){
         document.write("Bike:upSpeed()<br>");
     }
+    static m1(){
+        document.write("Bike:m1()<br>");
+    }
 }
 
 class Scooter extends Bike{
@@ -45,5 +48,8 @@ document.write("<hr>");
 document.write(b1 instanceof Scooter);
 document.write("<hr>");
 
+//Math.random();
+Bike.m1();
+Scooter.m1();
 
 </script>
