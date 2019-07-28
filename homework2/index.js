@@ -1,92 +1,102 @@
-let dd = 4;
-let answer = createAnswer(dd);
-let logtext = '';
-let count = 0;
-//執行猜數字的遊戲
-function doGuess(){
-    let guess = document.getElementById('input').value;
-    let check = checkNumber(guess);
-    
-    if(!check.result){
-        alert(check.string);
+let ctx = canvas.getContext('2d');
+let bullet = new Image();
+bullet.src = 'images/bullet.jpg';
+let bulletobj = {
+    x:151,
+    y:450,
+    w:106,
+    h:17
+}
+let ball = new Image();
+ball.src = 'images/ball.png';
+let ballobj = {
+    x:192,
+    y:426,
+    w:24,
+    h:24,
+    dx:8,
+    dy:8
+}
+let block1 = new Image();
+let block2 = new Image();
+let block3 = new Image();
+let block4 = new Image();
+let block5 = new Image();
+let block6 = new Image();
+let block7 = new Image();
+let block8 = new Image();
+block1.src ='images/block1.jpg';
+block2.src ='images/block2.jpg';
+block3.src ='images/block3.jpg';
+block4.src ='images/block4.jpg';
+block5.src ='images/block5.jpg';
+block6.src ='images/block6.jpg';
+block7.src ='images/block7.jpg';
+block8.src ='images/block8.jpg';
+let blockImg = [block1,block2,block3,block4,block5,block6,block7,block8];
+let blocks = [];
+
+
+bullet.onload = function(){
+    ctx.drawImage(bullet,bulletobj.x,bulletobj.y);
+}
+ball.onload = function(){
+    ctx.drawImage(ball,ballobj.x,ballobj.y);
+}
+
+canvas.onmousemove = function(e){
+    if(e.offsetX-53 <= 0){
+        ctx.clearRect(bulletobj.x -1,bulletobj.y -1,bulletobj.w +2,bulletobj.h +2);
+        ctx.drawImage(bullet,0,bulletobj.y);
+        bulletobj.x = 0;
+    }else if(e.offsetX+53 >= 408){
+        ctx.clearRect(bulletobj.x -1,bulletobj.y -1,bulletobj.w +2,bulletobj.h +2);
+        ctx.drawImage(bullet,302,bulletobj.y);
+        bulletobj.x = 302;
     }else{
-        if(count < 10){
-            count++;
-            let result = checkAB(answer,guess);
-            document.getElementById('input').value = '';
-            logtext += `第${count}次：${guess} => ${result} <br>`;
-            if(result == `${dd}A0B`){
-                logtext += '恭喜你猜對了<br>';
-            }else if(count == 5){
-                logtext += '你再不猜出來你要被罵了<br>';
-            }else if(count == 10){
-                logtext += '這樣不行你已經沒有機會了<br>';
-                logtext += '答案是'+answer+'<br>';
-            }
-            document.getElementById('log').innerHTML = logtext;
-            document.getElementById('input').focus();
+        ctx.clearRect(bulletobj.x -1,bulletobj.y -1,bulletobj.w +2,bulletobj.h +2);
+        ctx.drawImage(bullet,e.offsetX-53,bulletobj.y);
+        bulletobj.x = e.offsetX-53;
+    }
+}
+function refreshView (){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.drawImage(ball,ballobj.x,ballobj.y);
+    ctx.drawImage(bullet,bulletobj.x,bulletobj.y);
+}
+
+setInterval(refreshView,17);
+
+function moveBall(obj){
+    if(obj.x < 0 || obj.x + 24 > canvas.width){
+        obj.dx *= -1;
+    }
+    if(obj.y < 0 || obj.y + 24 > canvas.height){
+        obj.dy *= -1;
+    }else if((bulletobj.x <= (obj.x + 12) <= bulletobj.x+bulletobj.w)){
+        obj.dy == -8;
+    }
+
+    obj.x += obj.dx;
+    obj.y += obj.dy;
+}
+function go(){
+    moveBall(ballobj);
+}
+setInterval(go,30);
+
+
+
+function clone(source){
+    if(null == source || "object" != typeof source) return null;
+    let target = new Object();
+    for(let attr in source){
+        if(typeof(source[attr] != 'object')){
+            target[attr] = source[attr];
+        }else{
+            target[attr] = clone(source[attr]); //遞迴
         }
+        target[attr] = source[attr];
     }
-    
-}
-
-//重置遊戲
-function resetGame(){
-    dd = document.getElementById('dd').value;
-    answer = createAnswer(dd);
-    logtext = ''
-    document.getElementById('log').innerHTML = '';
-    count = 0;
-    document.getElementById('input').value = '';
-    document.getElementById('input').focus();
-}
-
-//產生答案
-function createAnswer(n = 3){
-    let number = [];
-    for(let i = 0 ; i < 10 ; i++) number[i] = i;
-    for(let i = number.length-1;i>0;i--){
-        let rand = parseInt(Math.random()*(i+1));
-        [number[i],number[rand]] = [number[rand],number[i]];//這樣可以將這兩個值對調
-    }
-    if(n > 10){
-        n = 3;
-    }
-    let ret = '';
-    for(let i = 0 ; i < n ; i++){
-        ret = ret + number[i];
-    }
-    return ret;
-}
-
-//檢查數字
-function checkAB(ans,gus){
-    let A = 0 , B = 0;
-    for(let i = 0 ; i < gus.length ; i++){
-        for(let j = 0 ; j < ans.length ; j++){
-            if(i == j){
-                if(gus.substr(i,1) == ans.substr(j,1)){
-                    A++;
-                    break;
-                }
-            }else{
-                if(gus.substr(i,1) == ans.substr(j,1)){
-                    B++;
-                    break;
-                }
-            }
-        }
-    }
-    return A + "A" + B + "B";
-}
-
-//檢查傳入值是否符合規格
-function checkNumber(num){
-    // 檢查是否都是數字
-
-    // 檢查是否重複
-    
-    // 檢查字數
-
-    //可以用正規表示法判斷
+    return target;
 }
