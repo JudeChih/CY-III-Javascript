@@ -35,11 +35,30 @@ block7.src ='images/block7.jpg';
 block8.src ='images/block8.jpg';
 let blockImg = [block1,block2,block3,block4,block5,block6,block7,block8];
 let blocks = [];
+let blockCount = 32;
+let blockobj = {
+    x:0,
+    y:0,
+    img:0,
+    w:51,
+    h:19
+}
 
+$(document).ready(function(){
+    for (var i = 0; i < blockCount; i++) {
+        let block = clone(blockobj);
+        block.x = (i % 8)*block.w;
+        block.y = 50 + Math.floor(i / 8)*block.h;
+        block.img = i % 8;
+        ctx.drawImage(blockImg[block.img],block.x,block.y);
+        blocks.push(block);
+    }
+});
 
 bullet.onload = function(){
     ctx.drawImage(bullet,bulletobj.x,bulletobj.y);
 }
+
 ball.onload = function(){
     ctx.drawImage(ball,ballobj.x,ballobj.y);
 }
@@ -59,31 +78,50 @@ canvas.onmousemove = function(e){
         bulletobj.x = e.offsetX-53;
     }
 }
+
 function refreshView (){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.drawImage(ball,ballobj.x,ballobj.y);
     ctx.drawImage(bullet,bulletobj.x,bulletobj.y);
+    for(let block of blocks){
+        ctx.drawImage(blockImg[block.img],block.x,block.y);
+    }
 }
 
 setInterval(refreshView,17);
 
+var ball_boolean = true;
 function moveBall(obj){
-    if(obj.x < 0 || obj.x + 24 > canvas.width){
-        obj.dx *= -1;
+    if(obj.x < 0 && ball_boolean){
+        obj.dx = 8;
+    }else if(obj.x + 24 > canvas.width){
+        obj.dx = -8;
     }
-    if(obj.y < 0 || obj.y + 24 > canvas.height){
-        obj.dy *= -1;
-    }else if((bulletobj.x <= (obj.x + 12) <= bulletobj.x+bulletobj.w)){
-        obj.dy == -8;
+    if(obj.y < 0 && ball_boolean){
+        if(obj.dy == -8){
+            obj.dy *= -1;
+        }
+    }else if(bulletobj.x <= (obj.x + 12) &&  (obj.x + 12)<= bulletobj.x+bulletobj.w && (bulletobj.y <= obj.y + 24) && ball_boolean){
+        if(obj.dy == 8){
+            obj.dy *= -1;
+        }
+    }else if((bulletobj.x -6 > (obj.x + 12) ||  (obj.x + 12) > bulletobj.x+bulletobj.w +6) && (bulletobj.y <= obj.y + 24)){
+        ball_boolean = false;
+        if(obj.y + 24 > canvas.height){
+            alert('你已經輸囉，請刷新頁面再玩一次吧！');
+            clearInterval(int);
+            return;
+        }
     }
-
     obj.x += obj.dx;
     obj.y += obj.dy;
 }
+
 function go(){
     moveBall(ballobj);
 }
-setInterval(go,30);
+
+var int = setInterval(go,30);
 
 
 
