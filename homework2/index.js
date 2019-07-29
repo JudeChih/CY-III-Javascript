@@ -41,7 +41,8 @@ let blockobj = {
     y:0,
     img:0,
     w:51,
-    h:19
+    h:19,
+    display:true
 }
 
 $(document).ready(function(){
@@ -84,7 +85,9 @@ function refreshView (){
     ctx.drawImage(ball,ballobj.x,ballobj.y);
     ctx.drawImage(bullet,bulletobj.x,bulletobj.y);
     for(let block of blocks){
-        ctx.drawImage(blockImg[block.img],block.x,block.y);
+        if(block.display){
+            ctx.drawImage(blockImg[block.img],block.x,block.y);
+        }
     }
 }
 
@@ -113,6 +116,12 @@ function moveBall(obj){
             return;
         }
     }
+
+    if(checkBallTouchBlock(obj.x + obj.dx , obj.y + obj.dy)){
+        obj.dy *= -1;
+    }
+
+
     obj.x += obj.dx;
     obj.y += obj.dy;
 }
@@ -122,8 +131,6 @@ function go(){
 }
 
 var int = setInterval(go,30);
-
-
 
 function clone(source){
     if(null == source || "object" != typeof source) return null;
@@ -137,4 +144,23 @@ function clone(source){
         target[attr] = source[attr];
     }
     return target;
+}
+
+function checkBallTouchBlock(x,y){
+    let num = 0;
+    for(let i = 0 ; i < blocks.length ; i++){
+        if(blocks[i].display){
+            num++;
+            if(blocks[i].x <= x && x <= (blocks[i].x + blocks[i].w) && blocks[i].y <= y && y <= (blocks[i].y + blocks[i].h)){
+                blocks[i].display = false;
+                return true;
+            }
+        }
+    }
+    if(num == 0){
+        alert('恭喜你破關囉！');
+        clearInterval(int);
+        return;
+    }
+    return false;
 }
